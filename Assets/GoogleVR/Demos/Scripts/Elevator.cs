@@ -32,16 +32,14 @@ public class Elevator : MonoBehaviour {
 			}
 		} else {
 			if (moveUp) {
-//				rb.MovePosition (transform.position + transform.up * Time.deltaTime);
-				transform.Translate (transform.up * speed * Time.deltaTime);
+				rb.MovePosition (transform.position + transform.up * Time.deltaTime * speed);
 				if (transform.position.y >= 10) {
 					running = false;
 					timeLeft = timeStopped;
 					moveUp = false;
 				}
 			} else {
-//				rb.MovePosition (-1 * (transform.position + transform.up * Time.deltaTime));
-				transform.Translate (-1 * transform.up * speed * Time.deltaTime);
+				rb.MovePosition (transform.position - transform.up * Time.deltaTime * speed);
 				if (transform.position.y <= 0) {
 					running = false;
 					timeLeft = timeStopped;
