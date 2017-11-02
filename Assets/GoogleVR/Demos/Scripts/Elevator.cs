@@ -34,6 +34,7 @@ public class Elevator : MonoBehaviour {
 			if (moveUp) {
 				rb.MovePosition (transform.position + transform.up * Time.deltaTime * speed);
 				if (transform.position.y >= 10) {
+					rb.MovePosition (new Vector3(transform.position.x, 10, transform.position.z));
 					running = false;
 					timeLeft = timeStopped;
 					moveUp = false;
@@ -41,6 +42,7 @@ public class Elevator : MonoBehaviour {
 			} else {
 				rb.MovePosition (transform.position - transform.up * Time.deltaTime * speed);
 				if (transform.position.y <= 0) {
+					rb.MovePosition (new Vector3(transform.position.x, 0, transform.position.z));
 					running = false;
 					timeLeft = timeStopped;
 					moveUp = true;
