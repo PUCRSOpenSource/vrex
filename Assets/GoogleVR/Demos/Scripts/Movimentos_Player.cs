@@ -14,16 +14,11 @@ public class Movimentos_Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float angle = Vector3.Angle(Vector3.up, camera.transform.forward);
 
-		float moveVertical = Input.GetAxis ("Vertical");
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-
-		Vector3 movePraFrente = camera.forward * moveVertical * Time.deltaTime * velocidade;
-		transform.Translate (movePraFrente);
-
-		Vector3 moveProLado = camera.right * moveHorizontal * Time.deltaTime * velocidade;
-		transform.Translate (moveProLado);
-
-
+		if (angle > 100) {
+			Vector3 movePraFrente = camera.forward * (angle / 100) * Time.deltaTime * velocidade;
+			transform.Translate (movePraFrente);
+		}
 	}
 }
