@@ -19,6 +19,11 @@ public class Movimentos_Player : MonoBehaviour {
 		if (angle > 100) {
 			Vector3 movePraFrente = camera.forward * (angle / 100) * Time.deltaTime * velocidade;
 			transform.Translate (movePraFrente);
+		} else {
+			if (angle < 80) {
+				Vector3 movePraFrente = -1 * camera.forward * (angle / 500) * Time.deltaTime * velocidade;
+				transform.Translate (movePraFrente);
+			}
 		}
 	}
 }
